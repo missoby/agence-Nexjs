@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { MDBContainer } from 'mdbreact'
 
 import api from '../auth/axios'
@@ -10,14 +11,21 @@ import { Features } from '../components/features'
 
 export default function Home({ propertiesVip, properties }) {
   return (
-    <Layout footer>
-      <Carousel />
-      <MDBContainer>
-        <PropertyVip properties={propertiesVip} />
-        <PropertySection properties={properties} />
-        <Features />
-      </MDBContainer>
-    </Layout>
+    <>
+      <Head>
+        <title>Agence Immobilière</title>
+        <meta name="description" content="Application Nextjs" />
+        <meta name="keywords" content="Nextjs,React,HTML,CSS,JavaScript"></meta>
+      </Head>
+      <Layout footer>
+        <Carousel />
+        <MDBContainer>
+          <PropertyVip properties={propertiesVip} />
+          <PropertySection properties={properties} />
+          <Features />
+        </MDBContainer>
+      </Layout>
+    </>
   )
 }
 

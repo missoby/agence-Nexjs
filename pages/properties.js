@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import api from '../auth/axios'
 
 import { Layout } from '../components/layout'
@@ -22,32 +23,39 @@ const Properties = ({ properties, pageCount, currentPage }) => {
         }).then(() => window.scrollTo(0, 0))
     }
     return (
-        <Layout footer>
-            <MDBContainer>
-                <SearchFilter />
-                <Card properties={properties} />
-                <nav className="pages mx-auto mt-4">
-                    <ReactPaginate
-                        onPageChange={paginationHandler}
-                        initialPage={currentPage - 1}
-                        pageCount={pageCount}
-                        marginPagesDisplayed={2}
-                        pageRangeDisplayed={5}
-                        previousLabel={"Précédent"}
-                        nextLabel={"Suivant"}
-                        containerClassName="pagination"
-                        breakClassName="page-item"
-                        breakLabel="..."
-                        pageClassName="page-item"
-                        previousClassName="page-item"
-                        nextClassName="page-item"
-                        pageLinkClassName="page-link"
-                        previousLinkClassName="page-link"
-                        nextLinkClassName="page-link"
-                        activeClassName="active"
-                    /></nav>
-            </MDBContainer>
-        </Layout>
+        <>
+            <Head>
+                <title>Agence Immobilière - Liste des biens</title>
+                <meta name="description" content="Application Nextjs" />
+                <meta name="keywords" content="Nextjs,React,HTML,CSS,JavaScript"></meta>
+            </Head>
+            <Layout footer>
+                <MDBContainer>
+                    <SearchFilter />
+                    <Card properties={properties} />
+                    <nav className="pages mx-auto mt-4">
+                        <ReactPaginate
+                            onPageChange={paginationHandler}
+                            initialPage={currentPage - 1}
+                            pageCount={pageCount}
+                            marginPagesDisplayed={2}
+                            pageRangeDisplayed={5}
+                            previousLabel={"Précédent"}
+                            nextLabel={"Suivant"}
+                            containerClassName="pagination"
+                            breakClassName="page-item"
+                            breakLabel="..."
+                            pageClassName="page-item"
+                            previousClassName="page-item"
+                            nextClassName="page-item"
+                            pageLinkClassName="page-link"
+                            previousLinkClassName="page-link"
+                            nextLinkClassName="page-link"
+                            activeClassName="active"
+                        /></nav>
+                </MDBContainer>
+            </Layout>
+        </>
     )
 }
 

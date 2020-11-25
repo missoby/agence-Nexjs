@@ -3,6 +3,7 @@ import { MDBContainer, MDBInput } from "mdbreact";
 import { Layout } from "../components/layout";
 import useAuth from "../auth/context";
 import { useRouter } from "next/router";
+import Head from 'next/head'
 
 const FormPage = () => {
     const [values, setValues] = useState({
@@ -27,37 +28,44 @@ const FormPage = () => {
         login(values.username, values.password);
     };
     return (
-        <Layout>
-            <MDBContainer>
-                <form onSubmit={onSubmit}>
-                    <p className="h4 text-center my-4">Connexion</p>
-                    <div className="grey-text">
-                        <MDBInput
-                            label="Nom d'utilisateur"
-                            icon="user"
-                            group
-                            name="username"
-                            type="text"
-                            onChange={handleChange("username")}
-                        />
-                        <MDBInput
-                            label="Mot de passe"
-                            name="password"
-                            onChange={handleChange("password")}
-                            icon="lock"
-                            group
-                            type="password"
-                            validate
-                        />
-                    </div>
-                    <div className="text-center">
-                        <button type="submit" className="globalButton">
-                            connexion
+        <>
+            <Head>
+                <title>Agence Immobilière - Connectez-vous</title>
+                <meta name="description" content="Application Nextjs" />
+                <meta name="keywords" content="Nextjs,React,HTML,CSS,JavaScript"></meta>
+            </Head>
+            <Layout>
+                <MDBContainer>
+                    <form onSubmit={onSubmit}>
+                        <p className="h4 text-center my-4">Connexion</p>
+                        <div className="grey-text">
+                            <MDBInput
+                                label="Nom d'utilisateur"
+                                icon="user"
+                                group
+                                name="username"
+                                type="text"
+                                onChange={handleChange("username")}
+                            />
+                            <MDBInput
+                                label="Mot de passe"
+                                name="password"
+                                onChange={handleChange("password")}
+                                icon="lock"
+                                group
+                                type="password"
+                                validate
+                            />
+                        </div>
+                        <div className="text-center">
+                            <button type="submit" className="globalButton">
+                                connexion
             </button>
-                    </div>
-                </form>
-            </MDBContainer>
-        </Layout>
+                        </div>
+                    </form>
+                </MDBContainer>
+            </Layout>
+        </>
     );
 };
 

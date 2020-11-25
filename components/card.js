@@ -7,7 +7,7 @@ import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBBtn
 export const Card = ({ properties }) => {
     return (
         <>
-            <h2 className="h1-responsive font-weight-bold text-center my-5">Recent posts</h2>
+            <h2 className="h1-responsive font-weight-bold text-center my-5">Liste des biens</h2>
 
             {
                 properties && properties.map(

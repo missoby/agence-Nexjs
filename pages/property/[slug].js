@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 import api from '../../auth/axios'
 import { Layout } from '../../components/layout'
 import { CardCarousel } from '../../components/cardCarrousel'
@@ -20,6 +21,11 @@ const Property = ({ property, properties, propertyRelated }) => {
     };
     return (
         <>
+            <Head>
+                <title>Agence Immobilière - {property.title}</title>
+                <meta name="description" content="Application Nextjs" />
+                <meta name="keywords" content="Nextjs,React,HTML,CSS,JavaScript"></meta>
+            </Head>
             {property && (
                 <Layout footer>
                     <MDBContainer>
