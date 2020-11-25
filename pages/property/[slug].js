@@ -22,7 +22,7 @@ const Property = ({ property, properties, propertyRelated }) => {
     return (
         <>
             <Head>
-                <title>Agence Immobilière - {property.title}</title>
+                <title>Agence Immobilière </title>
                 <meta name="description" content="Application Nextjs" />
                 <meta name="keywords" content="Nextjs,React,HTML,CSS,JavaScript"></meta>
             </Head>
